@@ -10,7 +10,7 @@ This repository is intended to be run using Deno. So, the first step is to [inst
 
 If you are using VSCode, you should also install the [Deno extension for VSCode](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) for better experiences.
 
-To run the test, simply type this command in your terminal:
+To run the test, simply run `deno test` in your terminal. For example:
 
 ```
 deno test folder_name/test.ts
