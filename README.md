@@ -1,6 +1,6 @@
 ## TS-LeetCode
 
-This repository contains my solution to various LeetCode's problem in TypeScript.
+This repository contains my solution to various LeetCode problems in TypeScript.
 
 I sometimes also write my thinking process for the solutions on [my blog](https://vitaneri.com/tags/leetcode/).
 
