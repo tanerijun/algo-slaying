@@ -9,4 +9,6 @@ Deno.test("cbbd", () => {
   assertEquals(longestPalindrome("cbbd"), "bb");
 })
 
-longestPalindrome("cbba");
+Deno.test("cbbbba", () => {
+  assertEquals(longestPalindrome("cbbbba"), "bbbb");
+})
