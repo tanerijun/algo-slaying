@@ -13,4 +13,6 @@ Deno.test('pwwkew', () => {
 	assertEquals(lengthOfLongestSubstring('pwwkew'), 3);
 });
 
-console.log(lengthOfLongestSubstring('pwwkew'));
+Deno.test('abba', () => {
+	assertEquals(lengthOfLongestSubstring('abba'), 2);
+});
