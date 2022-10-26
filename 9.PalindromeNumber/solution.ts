@@ -5,8 +5,8 @@ export function isPalindrome(x: number): boolean {
 
   while (x > reversed) {
     reversed = reversed * 10 + x % 10;
-    x = Math.floor(x / 10);
+    x = Math.trunc(x / 10);
   }
 
-  return reversed === x || Math.floor(reversed / 10) === x;
+  return reversed === x || Math.trunc(reversed / 10) === x;
 };
