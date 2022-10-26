@@ -15,7 +15,7 @@ export function reverse(x: number): number {
 
   while (input != 0) {
     result = result * 10 + input % 10;
-    input = Math.floor(input / 10);
+    input = Math.trunc(input / 10);
   }
 
   result *= Math.sign(x);

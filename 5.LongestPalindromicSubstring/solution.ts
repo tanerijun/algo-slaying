@@ -20,8 +20,8 @@ export function longestPalindrome(s: string): string {
 		let caseEven = expandAroundCenter(s, i, i + 1); // ex: abbd
 		const len = Math.max(caseOdd, caseEven);
 		if (len > rIdx - lIdx) {
-			lIdx = i - Math.floor((len - 1) / 2);
-			rIdx = i + Math.floor(len / 2);
+			lIdx = i - Math.trunc((len - 1) / 2);
+			rIdx = i + Math.trunc(len / 2);
 		}
 	}
 
