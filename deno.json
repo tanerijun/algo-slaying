@@ -1,5 +1,8 @@
 {
 	"fmt": {
+		"files": {
+			"include": ["./"]
+		},
 		"options": {
 			"useTabs": true,
 			"lineWidth": 80,

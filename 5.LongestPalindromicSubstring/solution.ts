@@ -1,5 +1,4 @@
 function expandAroundCenter(s: string, l: number, r: number): number {
-
 	while (l >= 0 && r < s.length && s[l] === s[r]) {
 		l--;
 		r++;
