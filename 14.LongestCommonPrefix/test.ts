@@ -12,5 +12,3 @@ Deno.test(`["dog","racecar","car"]`, () => {
 Deno.test(`["a"]`, () => {
   assertEquals(longestCommonPrefix(["a"]), "a")
 })
-
-longestCommonPrefix(["a"])
