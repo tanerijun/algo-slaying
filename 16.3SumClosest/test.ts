@@ -12,5 +12,3 @@ Deno.test("nums = [0,0,0], target = 1", () => {
 Deno.test("nums = [4,0,5,-5,3,3,0,-4,-5], target = -2", () => {
   assertEquals(threeSumClosest([4, 0, 5, -5, 3, 3, 0, -4, -5], -2), -2)
 })
-
-threeSumClosest([0, 0, 0], 1);
