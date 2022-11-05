@@ -31,6 +31,7 @@ export function twoSum(nums: number[], target: number): number[][] {
 
 // kSum using two pointers
 // With kSum, we can also solve 5Sum, 6Sum, ...
+// Time Complexity: O(n^(k - 1)), k-2 loops and twoSum is O(n)
 // nums should be sorted beforehand
 function kSum(nums: number[], target: number, k: number): number[][] {
   const res: number[][] = [];
