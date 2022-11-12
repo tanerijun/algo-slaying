@@ -39,5 +39,3 @@ Deno.test("[]", () => {
 Deno.test("[1]", () => {
   assertEquals(convertListToArray(swapPairs(convertArrayToList([1]))), [1]);
 })
-
-swapPairs(convertArrayToList([1, 2, 3, 4]))

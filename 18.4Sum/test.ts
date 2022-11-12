@@ -28,5 +28,3 @@ Deno.test("fourSum on [1,0,-1,0,-2,2], target = 0", () => {
 Deno.test("fourSum on [2,2,2,2,2], target = 8", () => {
   assertEquals(fourSum([2, 2, 2, 2, 2], 8), [[2, 2, 2, 2]]);
 })
-
-fourSum([1, 0, -1, 0, -2, 2], 0)

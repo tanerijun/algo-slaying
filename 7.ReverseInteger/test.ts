@@ -16,5 +16,3 @@ Deno.test('120', () => {
 Deno.test('1534236469', () => {
 	assertEquals(reverse(1534236469), 0);
 });
-
-reverse(123);

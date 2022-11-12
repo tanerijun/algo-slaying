@@ -8,5 +8,3 @@ Deno.test('[1,8,6,2,5,4,8,3,7]', () => {
 Deno.test('[1,1]', () => {
 	assertEquals(maxArea([1, 1]), 1);
 });
-
-maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]);
