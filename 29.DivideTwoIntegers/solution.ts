@@ -8,17 +8,7 @@ export function divide(dividend: number, divisor: number): number {
   }
 
   let res = 0;
-
-  // Handle negative
-  let isNegative = false;
-
-  if (dividend < 0) {
-    isNegative = !isNegative;
-  }
-
-  if (divisor < 0) {
-    isNegative = !isNegative;
-  }
+  let isPositive = divisor < 0 === dividend < 0;
 
   if (divisor === 1 || divisor === -1) {
     res = Math.abs(dividend);
@@ -40,7 +30,7 @@ export function divide(dividend: number, divisor: number): number {
     res = --counter;
   }
 
-  res = isNegative ? res * -1 : res;
+  res = isPositive ? res : res * -1;
 
   // Handle overflow
   const MIN_INT = Math.pow(-2, 31);
