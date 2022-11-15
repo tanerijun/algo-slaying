@@ -1,3 +1,4 @@
+// Using subtraction
 export function divide(dividend: number, divisor: number): number {
   if (dividend === 0) {
     return 0;
