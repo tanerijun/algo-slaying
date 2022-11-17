@@ -2,14 +2,10 @@
 
 This repository contains my solution to various LeetCode problems.
 
-The language used is totally random (depends on my mood).
-
 I sometimes also write my thinking process for the solutions on
 [my blog](https://vitaneri.com/tags/leetcode/).
 
 ## Running Locally
-
-### TypeScript
 
 The TypeScript solutions are intended to be run using Deno. So, the first step is to
 [install Deno](https://deno.land) if you haven't have it installed.
@@ -25,5 +21,3 @@ deno test folder_name/test.ts
 deno test 1.TwoSum/test.ts
 deno test 2.AddTwoNumbers/test.ts
 ```
-
-### Go
