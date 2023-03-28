@@ -9,14 +9,9 @@ function sockMerchant(n: number, ar: number[]): number {
 
 	let pairCount = 0
 
-	console.log(map)
-	console.log(Object.values(map))
-
 	for (const value of Object.values(map)) {
 		pairCount += Math.floor(value / 2)
 	}
 
 	return pairCount
 }
-
-console.log(sockMerchant(7, [1, 2, 1, 2, 1, 3, 2]))
