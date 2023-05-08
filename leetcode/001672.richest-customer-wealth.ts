@@ -11,3 +11,4 @@ function maximumWealth(accounts: number[][]): number {
 
 	return max
 }
+// Time complexity: O(n2)
