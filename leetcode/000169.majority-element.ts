@@ -16,3 +16,27 @@ function majorityElement(nums: number[]): number {
 }
 // Time complexity: O(n)
 // Space complexity: O(n)
+
+// Boyer-Moore algorithm
+function majorityElement2(nums: number[]): number {
+	let curCandidate = nums[0]
+	let count = 1
+
+	for (let i = 1; i < nums.length; i++) {
+		if (nums[i] === curCandidate) {
+			count++
+		} else {
+			count--
+		}
+
+		if (count === 0) {
+			i++
+			curCandidate = nums[i]
+			count = 1
+		}
+	}
+
+	return curCandidate
+}
+// Time complexity: O(n)
+// Space complexity: O(1)
