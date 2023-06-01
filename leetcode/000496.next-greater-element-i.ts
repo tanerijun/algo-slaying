@@ -28,3 +28,31 @@ function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
 }
 // Time complexity: O(n * m)
 // Space complexity: O(n)
+
+function nextGreaterElement2(nums1: number[], nums2: number[]): number[] {
+	const res = new Array(nums1.length).fill(-1)
+	const nums1IdxMap = new Map<number, number>()
+	const stack: number[] = []
+
+	for (let i = 0; i < nums1.length; i++) {
+		nums1IdxMap.set(nums1[i], i)
+	}
+
+	for (let j = 0; j < nums2.length; j++) {
+		if (stack.length > 0 && nums2[j] > stack[stack.length - 1]) {
+			while (stack.length > 0 && stack[stack.length - 1] < nums2[j]) {
+				const num = stack.pop() as number
+				const numIdx = nums1IdxMap.get(num) as number
+				res[numIdx] = nums2[j]
+			}
+		}
+
+		if (nums1IdxMap.has(nums2[j])) {
+			stack.push(nums2[j])
+		}
+	}
+
+	return res
+}
+// Time complexity: O(n) + O(m)
+// Space complexity: O(n)
