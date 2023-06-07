@@ -27,7 +27,7 @@ class NumArray {
 class NumArray2 {
 	// Contain sum of numbers up to the index
 	// Ex: _sums[3] = _sums[0] + _sums[1] + _sums[2] + _sums[3]
-	_sums: number[] = []
+	_sums: number[] = [0]
 
 	constructor(nums: number[]) {
 		let sum = 0
