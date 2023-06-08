@@ -42,4 +42,4 @@ function findDisappearedNumbers2(nums: number[]): number[] {
 	return disappearedNumbers
 }
 // Time complexity: O(n)
-// Space complexity: O(n)
+// Space complexity: O(1)
