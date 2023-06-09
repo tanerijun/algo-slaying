@@ -28,3 +28,39 @@ function maxNumberOfBalloons(text: string): number {
 }
 // Time complexity: O(n)
 // Space complexity: O(n)
+
+// Using division at the end for better efficiency
+function maxNumberOfBalloons2(text: string): number {
+	// To construct the string "balloon" we need:
+	// b: 1, a: 1, l: 2, o: 2, n: 1
+
+	const map = new Map<string, number>()
+
+	for (const char of text) {
+		map.set(char, (map.get(char) ?? 0) + 1)
+	}
+
+	const count = {
+		b: map.get("b") ?? 0,
+		a: map.get("a") ?? 0,
+		l: Math.floor((map.get("l") ?? 0) / 2),
+		o: Math.floor((map.get("o") ?? 0) / 2),
+		n: map.get("n") ?? 0,
+	}
+
+	return findArrMin(Object.values(count))
+}
+// Time complexity: O(n)
+// Space complexity: O(n)
+
+function findArrMin(nums: number[]) {
+	let min = Number.MAX_SAFE_INTEGER
+
+	for (const num of nums) {
+		if (num < min) {
+			min = num
+		}
+	}
+
+	return min
+}
