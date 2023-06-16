@@ -6,7 +6,11 @@ class MyHashSet {
 	set: ListNode[] = []
 
 	constructor() {
-		this.set = Array(this.LENGTH).fill(new ListNode(0))
+		this.set = new Array(this.LENGTH)
+		for (let i = 0; i < this.LENGTH; i++) {
+			const dummyNode = new ListNode(0)
+			this.set[i] = dummyNode
+		}
 	}
 
 	_hash(key: number): number {
@@ -79,10 +83,5 @@ class ListNode {
 	}
 }
 
-/**
- * Your MyHashSet object will be instantiated and called as such:
- * var obj = new MyHashSet()
- * obj.add(key)
- * obj.remove(key)
- * var param_3 = obj.contains(key)
- */
+// Time complexity: O(1) in average case
+// Space complexity: O(n)
