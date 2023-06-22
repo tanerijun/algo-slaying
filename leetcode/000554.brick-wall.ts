@@ -20,5 +20,5 @@ function leastBricks(wall: number[][]): number {
 		: wall.length
 }
 
-// Time complexity: O(n * m)  n = number of rows in the wall, m = width of the wall
+// Time complexity: O(n)  n = number of bricks
 // Space complexity: O(m) m = width of the wall
