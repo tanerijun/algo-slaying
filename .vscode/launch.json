@@ -3,16 +3,11 @@
 	"configurations": [
 		{
 			"name": "Deno",
-			"type": "pwa-node",
+			"type": "node",
 			"request": "launch",
 			"cwd": "${workspaceFolder}",
 			"runtimeExecutable": "deno",
-			"runtimeArgs": [
-				"run",
-				"--inspect-brk",
-				"-A",
-				"${file}"
-			],
+			"runtimeArgs": ["run", "--inspect-brk", "-A", "${file}"],
 			"attachSimplePort": 9229
 		}
 	]
