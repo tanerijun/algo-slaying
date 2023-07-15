@@ -23,3 +23,5 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
 		putIndex--
 	}
 }
+// Time complexity: O(n)
+// Space complexity: O(1)
