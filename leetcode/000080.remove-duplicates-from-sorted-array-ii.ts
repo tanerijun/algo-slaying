@@ -7,24 +7,24 @@ function removeDuplicates(nums: number[]): number {
 	let idx = 1
 
 	for (let i = 1; i < nums.length; i++) {
-		if (currentNumber.count < 2 && nums[i] === currentNumber.value) {
+		if (nums[i] === currentNumber.value && currentNumber.count === 2) {
+			continue
+		}
+
+		if (nums[i] === currentNumber.value && currentNumber.count < 2) {
 			currentNumber.count++
+		}
 
-			const temp = nums[idx]
-			nums[idx] = nums[i]
-			nums[i] = temp
-
-			idx++
-		} else if (nums[i] !== currentNumber.value) {
+		if (nums[i] !== currentNumber.value) {
 			currentNumber.count = 1
 			currentNumber.value = nums[i]
-
-			const temp = nums[idx]
-			nums[idx] = nums[i]
-			nums[i] = temp
-
-			idx++
 		}
+
+		const temp = nums[idx]
+		nums[idx] = nums[i]
+		nums[i] = temp
+
+		idx++
 	}
 
 	return idx
