@@ -29,3 +29,5 @@ function removeDuplicates(nums: number[]): number {
 
 	return idx
 }
+// Time complexity: O(n)
+// Space complexity: O(1)
