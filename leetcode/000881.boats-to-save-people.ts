@@ -21,5 +21,5 @@ function numRescueBoats(people: number[], limit: number): number {
 
 	return boatCount
 }
-// Time complexity: O(n)
+// Time complexity: O(n*log(n))
 // Space complexity: O(1)
