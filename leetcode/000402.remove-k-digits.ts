@@ -47,3 +47,5 @@ function removeKdigits(num: string, k: number): string {
 	}
 	return res.slice(index) || "0";
 }
+// Time complexity: O(n)
+// Space complexity: O(n)
