@@ -17,5 +17,5 @@ function mySqrt(x: number): number {
 	const lSquared = l * l;
 	return lSquared === x ? l : lSquared > x ? l - 1 : l;
 }
-
-console.log(mySqrt(6));
+// Time complexity: O(Log n)
+// Space complexity: O(1)
