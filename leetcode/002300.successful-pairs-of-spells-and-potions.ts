@@ -29,5 +29,5 @@ function successfulPairs(spells: number[], potions: number[], success: number): 
 
 	return res;
 }
-// Time complexity: O(m(log(m)) + n(log(m))) -- m = potions.length, n = spells.length
+// Time complexity: O(m(log(m)) + n(log(m))) = O((m + n) log m) -- m = potions.length, n = spells.length
 // Space complexity: O(1)
