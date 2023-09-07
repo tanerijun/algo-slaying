@@ -32,32 +32,22 @@ class TimeMap {
 			return "";
 		}
 
-		let res: [number, number] | null = null; // [timestamp, index]
+		let res = "";
 		let l = 0;
 		let r = values.length - 1;
 
 		while (l <= r) {
 			const m = Math.floor((l + r) / 2);
 
-			// Update res
 			if (values[m][0] <= timestamp) {
-				if (!res) {
-					res = [values[m][0], m];
-				} else {
-					if ((values[m][0] > res[0]) || (values[m][0] === res[0] && m > res[1])) {
-						res = [values[m][0], m];
-					}
-				}
-			}
-
-			if (values[m][0] <= timestamp) {
+				res = values[m][1];
 				l = m + 1;
 			} else {
 				r = m - 1;
 			}
 		}
 
-		return res ? values[res[1]][1] : "";
+		return res;
 	}
 	// Time complexity: O(log(n))
 }
