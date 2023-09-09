@@ -31,11 +31,14 @@ class Node {
 
 function connect(root: Node | null): Node | null {
 	let curr = root;
-	let next = curr?.left ? curr.left : null;
+	let next = curr?.left ? curr.left : null; // pointer to the next level
 
 	while (curr && next) {
+		// Connect childs
 		curr.left!.next = curr.right;
 
+		// If the current node is connected to a different node,
+		// the right child of the current node should point to the left child of the node it's connected to.
 		if (curr.next) {
 			curr.right!.next = curr.next.left;
 		}
@@ -43,6 +46,7 @@ function connect(root: Node | null): Node | null {
 		curr = curr.next;
 
 		if (!curr) {
+			// Proceed to the next level
 			curr = next;
 			next = curr.left;
 		}
