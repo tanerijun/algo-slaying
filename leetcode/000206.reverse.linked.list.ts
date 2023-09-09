@@ -58,3 +58,21 @@ function reverseList2(head: ListNode | null): ListNode | null {
 }
 // Time complexity: O(n)
 // Space complexity: O(1)
+
+// Recursive solution
+function reverseList3(head: ListNode | null): ListNode | null {
+	if (!head) return null;
+
+	let newHead: ListNode | null = head;
+
+	if (head.next) {
+		newHead = reverseList3(head.next);
+		head.next.next = head;
+	}
+
+	head.next = null;
+
+	return newHead;
+}
+// Time complexity: O(n)
+// Space complexity: O(n)
