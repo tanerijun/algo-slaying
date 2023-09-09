@@ -42,3 +42,19 @@ function reverseList(head: ListNode | null): ListNode | null {
 }
 // Time complexity: O(n)
 // Space complexity: O(1)
+
+function reverseList2(head: ListNode | null): ListNode | null {
+	let prev: ListNode | null = null;
+	let curr: ListNode | null = head;
+
+	while (curr) {
+		const temp = curr.next;
+		curr.next = prev;
+		prev = curr;
+		curr = temp;
+	}
+
+	return prev;
+}
+// Time complexity: O(n)
+// Space complexity: O(1)
