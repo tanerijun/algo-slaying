@@ -26,3 +26,17 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
 }
 // Time complexity: O(n)
 // Space complexity: O(1)
+
+function deleteDuplicates2(head: ListNode | null): ListNode | null {
+	let cur: ListNode | null = head;
+
+	while (cur) {
+		while (cur.next && cur.next.val === cur.val) {
+			cur.next = cur.next.next;
+		}
+
+		cur = cur.next;
+	}
+
+	return head;
+}
