@@ -36,15 +36,17 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
 	cur = first
 	let prev = last!.next
 
-	if (beforeFirst) {
-		beforeFirst.next = last
-	}
-
 	for (let i = 0; i < right - left + 1; i++) {
 		const tmp = cur!.next
 		cur!.next = prev
 		prev = cur
 		cur = tmp
+	}
+
+	if (beforeFirst) {
+		beforeFirst.next = last
+	} else {
+		head = last
 	}
 
 	return head
