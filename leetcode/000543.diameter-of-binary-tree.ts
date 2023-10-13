@@ -14,15 +14,15 @@ function diameterOfBinaryTree(root: TreeNode | null): number {
 
 	function dfs(root: TreeNode | null) {
 		if (!root) {
-			return -1
+			return 0
 		}
 
-		const left = dfs(root.left)
-		const right = dfs(root.right)
+		const leftHeight = dfs(root.left)
+		const rightHeight = dfs(root.right)
 
-		maxDiameter = Math.max(maxDiameter, left + right + 1 + 1) // Height of left subtree + height of right subtree + 1 to cancel -1 height for null node + 1 for current node
+		maxDiameter = Math.max(maxDiameter, leftHeight + rightHeight)
 
-		return 1 + Math.max(left, right)
+		return 1 + Math.max(leftHeight, rightHeight) // to parent, add parent plus whichever child is deeper.
 	}
 
 	dfs(root)
