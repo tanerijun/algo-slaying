@@ -12,8 +12,8 @@ class Solution:
             complement = target - current_num
 
             if complement in map:
-                return [map.get(complement), x]
+                return [map[complement], x]
             else:
-                map.update({current_num: x})
+                map[current_num] = x
 
         return []
