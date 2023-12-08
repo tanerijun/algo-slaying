@@ -42,5 +42,5 @@ for await (const line of rl) {
 const sum = nums.reduce((a, b) => a + b)
 console.log(sum)
 
-// npx tsx day1/part1.ts day1/part1-input.txt
+// npx tsx day1/part1.ts day1/input.txt
 // 53386
