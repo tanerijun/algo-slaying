@@ -1,7 +1,7 @@
 package main
 
 import (
-	part1 "aoc2023-day2/part1"
+	"aoc2023-day2/part1"
 	"fmt"
 )
 
