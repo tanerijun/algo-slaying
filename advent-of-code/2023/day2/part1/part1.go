@@ -61,14 +61,8 @@ func sumSlice(s []int) int {
 	return sum
 }
 
-func Part1Solution() int {
-	if len(os.Args) != 2 {
-		log.Fatal("Usage: <run program> <path_to_input_file>")
-	}
-
-	fPath := os.Args[1]
-
-	fHand, err := os.Open(fPath)
+func Part1Solution(inputFilePath string) int {
+	fHand, err := os.Open(inputFilePath)
 	if err != nil {
 		log.Fatal(err)
 	}
