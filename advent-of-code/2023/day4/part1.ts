@@ -6,8 +6,10 @@ type WinningNumbers = number[]
 type ScratchCard = [WinningNumbers, OwnedNumbers]
 
 function readInputFile() {
-	const fPath = path.join(__dirname, "input.txt")
-	const data = readFileSync(fPath, "utf-8")
+	const filePath = new URL(import.meta.url).pathname
+	const fileDir = path.dirname(filePath)
+	const inputPath = path.join(fileDir, "input.txt")
+	const data = readFileSync(inputPath, "utf-8")
 	return data
 }
 
@@ -48,11 +50,9 @@ function getSolution() {
 		let pts = 0
 		for (const n of winningNumbers) {
 			if (ownedNumbers.includes(n)) {
-				console.log("matched", n)
 				pts === 0 ? (pts = 1) : (pts *= 2)
 			}
 		}
-		console.log(pts)
 		totalPts += pts
 	}
 
