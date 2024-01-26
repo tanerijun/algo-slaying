@@ -2,4 +2,5 @@ go 1.21.5
 
 use (
 	./advent-of-code/2023/day2
+	./leetcode/go
 )
