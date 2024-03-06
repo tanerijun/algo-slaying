@@ -1,4 +1,4 @@
-package leetcode
+package contains_duplicate
 
 // Time complexity: O(n)
 // Space complexity: O(n)

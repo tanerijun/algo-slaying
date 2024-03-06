@@ -1,4 +1,9 @@
-package leetcode
+package add_two_numbers
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
 
 // Time complexity: O(n)
 // Space complexity: O(n)
