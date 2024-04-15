@@ -1,10 +1,7 @@
-from typing import List
-
-
 class Solution:
     # Time complexity: O(n)
     # Space complexity: O(n)
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
         map = {}
 
         for x in range(len(nums)):
