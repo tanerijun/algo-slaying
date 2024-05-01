@@ -40,10 +40,8 @@ def calc_time_diff(t1: str, t2: str) -> str:
 
 
 def time_diff_calculator():
-    print("### Time Difference Calculator ###")
-    print("Please input two times with the format HH:MM:SS")
-    t1 = input("Time 1: ")
-    t2 = input("Time 2: ")
+    t1 = input("")
+    t2 = input("")
     time_diff = calc_time_diff(t1, t2)
     print(time_diff)
 
