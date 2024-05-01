@@ -46,4 +46,5 @@ def time_diff_calculator():
     print(time_diff)
 
 
-time_diff_calculator()
+if __name__ == "__main__":
+    time_diff_calculator()

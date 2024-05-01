@@ -39,5 +39,6 @@ def koch_triangles(N):
         return 1 + 4 * koch_triangles(N - 1)
 
 
-N = int(input())
-print(koch_triangles(N))
+if __name__ == "__main__":
+    N = int(input())
+    print(koch_triangles(N))
