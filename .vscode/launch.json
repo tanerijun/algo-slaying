@@ -42,6 +42,13 @@
 				// Ignore all dependencies (optional)
 				"${workspaceFolder}/node_modules/**"
 			]
+		},
+		{
+			"name": "debugpy",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "${file}",
+			"console": "integratedTerminal"
 		}
 	]
 }
