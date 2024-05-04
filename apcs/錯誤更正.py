@@ -39,6 +39,11 @@
 # Change bit (2,3)
 # Corrupt
 
+# Logic:
+# 1. Imagine a correct matrix. Change any arbitrary bit, then change another bit, observe the difference.
+# 2. If there're more than 1 odd row or odd column (sum), that means the matrix was changed more than once.
+# 3. In other word, if the matrix is only modified once, the changed bit is the intersection between the odd row and odd col.
+
 
 def parse_lines(lines):
     matrix = []
@@ -82,7 +87,9 @@ def error_fixer():
         if len(odd_row_idxs) == 0 and len(odd_col_idxs) == 0:
             outputs.append("OK")
         elif len(odd_row_idxs) == 1 and len(odd_col_idxs) == 1:
-            outputs.append(f"Change bit ({odd_row_idxs[0] + 1},{odd_col_idxs[0] + 1})") # plus 1 due to zero indexing
+            outputs.append(
+                f"Change bit ({odd_row_idxs[0] + 1},{odd_col_idxs[0] + 1})"
+            )  # plus 1 due to zero indexing
         else:
             outputs.append("Corrupt")
 
