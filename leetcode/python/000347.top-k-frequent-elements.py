@@ -34,3 +34,6 @@ class Solution2:
                 res.append(n)
                 if len(res) == k:
                     return res
+
+
+## IN PROGRESS
