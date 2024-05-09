@@ -35,5 +35,4 @@ class Solution2:
                 if len(res) == k:
                     return res
 
-
-## IN PROGRESS
+        return res
