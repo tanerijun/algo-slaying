@@ -5,15 +5,13 @@ class Solution:
 		stack = []
 		for ch in s:
 			match ch:
-				case "]":
-					if not stack or not stack.pop() == "[":
-						return False
-				case ")":
-					if not stack or not stack.pop() == "(":
-						return False
-				case "}":
-					if not stack or not stack.pop() == "{":
-						return False
+				case "[":
+					stack.append("]")
+				case "(":
+					stack.append(")")
+				case "{":
+					stack.append("}")
 				case _:
-					stack.append(ch)
+					if not stack or not stack.pop() == ch:
+						return False
 		return len(stack) == 0
