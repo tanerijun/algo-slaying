@@ -7,6 +7,8 @@ class ListNode:
         self.next = next
 
 class Solution:
+	# Time complexity: O(n)
+	# Space complexity: O(n)
 	def reorderList(self, head: Optional[ListNode]) -> None:
 		"""
 		Do not return anything, modify head in-place instead.
