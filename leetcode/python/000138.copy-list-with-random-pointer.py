@@ -28,3 +28,32 @@ class Solution:
 			cur = cur.next
 
 		return cloned[head]
+
+	# Time complexity: O(n)
+	# Space complexity: O(1)
+	def copyRandomList2(self, head: 'Optional[Node]') -> 'Optional[Node]':
+		if not head:
+			return None
+
+		# Create cloned nodes next to real nodes
+		cur = head
+		while cur:
+			temp = Node(cur.val)
+			temp.next = cur.next
+			cur.next = temp
+			cur = temp.next
+
+		# Handle the node.random val for the cloned nodes
+		cur = head
+		while cur and cur.next:
+			if cur.random:
+				cur.next.random = cur.random.next
+			cur = cur.next.next
+
+		# Connect the cloned nodes
+		cur = head.next
+		while cur:
+			cur.next = cur.next.next if cur.next
+			cur = cur.next
+
+		return head.next
