@@ -53,7 +53,26 @@ class Solution:
 		# Connect the cloned nodes
 		cur = head.next
 		while cur:
-			cur.next = cur.next.next if cur.next
+			if cur.next:
+				cur.next = cur.next.next
 			cur = cur.next
 
 		return head.next
+
+	# Time complexity: O(n)
+	# Space complexity: O(n)
+	def copyRandomList3(self, head: 'Optional[Node]') -> 'Optional[Node]':
+		cloned = {}
+
+		def dfs(node: 'Optional[Node]') -> 'Optional[Node]':
+			if node is None: return None
+			if node in cloned: return cloned[node]
+
+			clone = Node(node.val)
+			cloned[node] = clone
+			clone.next = dfs(node.next)
+			clone.random = dfs(node.random)
+
+			return clone
+
+		return dfs(head)
