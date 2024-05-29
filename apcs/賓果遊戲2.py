@@ -114,53 +114,112 @@
 #
 # The cpp solution converted to py
 #
+# BOARD_SIZE = 5
+
+# def best_bingo_move():
+#     # Initialize position tracking arrays
+#     pr = [-1] * 26  # Position row of number
+#     pc = [-1] * 26  # Position column of number
+
+#     # Read the board and fill pr, pc
+#     for i in range(BOARD_SIZE):
+#         row = list(map(int, input().split()))
+#         for j in range(BOARD_SIZE):
+#             num = row[j]
+#             pr[num] = i
+#             pc[num] = j
+
+#     # Initialize row, column and diagonal counters
+#     cr = [0] * BOARD_SIZE
+#     cc = [0] * BOARD_SIZE
+#     c1 = c2 = 0
+
+#     # Read the called numbers
+#     while True:
+#         n = int(input())
+#         if n == -1:
+#             break
+#         if pr[n] != -1:  # If the number has a valid position
+#             cr[pr[n]] += 1
+#             cc[pc[n]] += 1
+#             if pr[n] == pc[n]:
+#                 c1 += 1
+#             if pr[n] + pc[n] == BOARD_SIZE - 1:
+#                 c2 += 1
+#             pr[n] = pc[n] = -1  # Mark the number as called
+
+#     # Find the best move
+#     mxc = -1
+#     mxn = -1
+#     for n in range(1, 26):
+#         if pr[n] == -1:  # Skip already called numbers
+#             continue
+#         r, c = pr[n], pc[n]
+#         score = (cr[r] == 4) + (cc[c] == 4) + (r == c and c1 == 4) + (r + c == BOARD_SIZE - 1 and c2 == 4)
+#         if score > mxc or (score == mxc and (mxn == -1 or n < mxn)):
+#             mxc = score
+#             mxn = n
+
+#     print(mxn)
+
+# if __name__ == "__main__":
+#     best_bingo_move()
+
+# Slightly inefficient but more straightforward -> no need to manage row, col, and diag score.
+# The board is the source of truth
 BOARD_SIZE = 5
 
 def best_bingo_move():
-    # Initialize position tracking arrays
-    pr = [-1] * 26  # Position row of number
-    pc = [-1] * 26  # Position column of number
+    # Create and fill board
+    board = []
+    for _ in range(BOARD_SIZE):
+        board.append(list(map(int, input().split())))
 
-    # Read the board and fill pr, pc
-    for i in range(BOARD_SIZE):
-        row = list(map(int, input().split()))
-        for j in range(BOARD_SIZE):
-            num = row[j]
-            pr[num] = i
-            pc[num] = j
-
-    # Initialize row, column and diagonal counters
-    cr = [0] * BOARD_SIZE
-    cc = [0] * BOARD_SIZE
-    c1 = c2 = 0
-
-    # Read the called numbers
+    # Keep track of the called numbers
+    called_numbers = []
     while True:
-        n = int(input())
-        if n == -1:
+        number_to_cross = int(input())
+        if number_to_cross == -1:  # -1 indicates end of inputs
             break
-        if pr[n] != -1:  # If the number has a valid position
-            cr[pr[n]] += 1
-            cc[pc[n]] += 1
-            if pr[n] == pc[n]:
-                c1 += 1
-            if pr[n] + pc[n] == BOARD_SIZE - 1:
-                c2 += 1
-            pr[n] = pc[n] = -1  # Mark the number as called
+        called_numbers.append(number_to_cross)
+
+    # Mark the board based on called numbers
+    marked = [[False] * BOARD_SIZE for _ in range(BOARD_SIZE)]
+    for i in range(BOARD_SIZE):
+        for j in range(BOARD_SIZE):
+            if board[i][j] in called_numbers:
+                marked[i][j] = True
+
+    # Function to calculate the potential score for marking a cell
+    def calculate_score(i, j):
+        score = 0
+        # Check row
+        if sum(marked[i]) == 4 and not marked[i][j]:
+            score += 1
+        # Check column
+        if sum(marked[k][j] for k in range(BOARD_SIZE)) == 4 and not marked[i][j]:
+            score += 1
+        # Check tl to br diagonal
+        if i == j:
+            if sum(marked[k][k] for k in range(BOARD_SIZE)) == 4 and not marked[i][j]:
+                score += 1
+        # Check tr to bl diagonal
+        if i + j == BOARD_SIZE - 1:
+            if sum(marked[k][BOARD_SIZE - 1 - k] for k in range(BOARD_SIZE)) == 4 and not marked[i][j]:
+                score += 1
+        return score
 
     # Find the best move
-    mxc = -1
-    mxn = -1
-    for n in range(1, 26):
-        if pr[n] == -1:  # Skip already called numbers
-            continue
-        r, c = pr[n], pc[n]
-        score = (cr[r] == 4) + (cc[c] == 4) + (r == c and c1 == 4) + (r + c == BOARD_SIZE - 1 and c2 == 4)
-        if score > mxc or (score == mxc and (mxn == -1 or n < mxn)):
-            mxc = score
-            mxn = n
+    max_score, ans = -1, 0
+    for i in range(BOARD_SIZE):
+        for j in range(BOARD_SIZE):
+            if not marked[i][j]:  # if the cell is not marked yet
+                score = calculate_score(i, j)
+                if score > max_score or (score == max_score and board[i][j] < ans):
+                    max_score = score
+                    ans = board[i][j]
 
-    print(mxn)
+    print(ans)
 
 if __name__ == "__main__":
     best_bingo_move()
