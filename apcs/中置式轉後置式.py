@@ -36,7 +36,7 @@ def infix_to_postfix(s):
 	for ch in s:
 		if ch in operators:
 			# put operators with higher or equal precedence in output
-			while (stack and peek(stack) != "(" and (higher_precedence(peek(stack), ch) or equal_precedence(peek(stack), ch))):
+			while (stack and peek(stack) != "(" and (higher_precedence(peek(stack), ch) or equal_precedence(peek(stack), ch))): # see footnote for why equal_precedence check is needed
 				output.append(stack.pop())
 			stack.append(ch)
 		elif ch == "(":
@@ -60,3 +60,12 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
+# footnote: When converting an infix expression to postfix,
+# operator associativity determines how operators of the
+# same precedence level are handled.
+# For left-associative operators, operators
+# with the same precedence should be popped
+# from the stack before pushing the current operator. T
+# his ensures that the expression is evaluated correctly in a left-to-right manner.
+# e.g A - B - C = (A - B) - C
