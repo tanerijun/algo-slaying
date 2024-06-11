@@ -47,12 +47,10 @@
 # 4
 # 11
 
-from collections import defaultdict
-
 
 def main():
     n = int(input())  # num of vertices
-    tree = defaultdict(list)
+    tree = {}
     for i in range(1, n + 1):  # vertex value: 1 to n
         data = list(map(int, input().split()))
         childrens = data[1:]  # ignore first element (it tells the number of children)
@@ -77,7 +75,7 @@ def main():
 
     total_height = 0
     max_height = 0
-    root = 0
+    root = 0  # node with the highest height is the root
     for i, height in enumerate(heights):
         total_height += height
         if height > max_height:
@@ -87,8 +85,6 @@ def main():
     print(root)
     print(total_height)
 
-
-# Node with the highest height is the root
 
 if __name__ == "__main__":
     main()
