@@ -1,5 +1,10 @@
 {
 	"deno.enable": true,
 	"python.analysis.typeCheckingMode": "basic",
-	"python.analysis.autoImportCompletions": true
+	"python.analysis.autoImportCompletions": true,
+	"files.associations": {
+		"*.mdx": "markdown",
+		"*.css": "css",
+		"vector": "cpp"
+	}
 }
