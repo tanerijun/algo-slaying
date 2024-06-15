@@ -23,7 +23,52 @@
 
 from collections import defaultdict
 
+# Initial solution (for reference)
+# def main():
+#     vertex_count, source, target = map(int, input().split())
+#     graph = defaultdict(dict)
+#     for _ in range(vertex_count - 1):
+#         u, v, w = map(int, input().split())
+#         graph[u][v] = w
+#         graph[v][u] = w
 
+#     visited = set()
+#     stack = []  # monotonic decreasing stack
+#     valid_correlation = 0
+
+#     def dfs(node, current_min):
+#         nonlocal valid_correlation
+
+#         visited.add(node)
+
+#         should_pop = False
+#         if len(stack) == 0 or current_min < stack[-1]:
+#             stack.append(current_min)
+#             # Since this node is the minimum so far, when we're done,
+#             # we should pop and correlation will be the previous minimum
+#             # Ex: if our stack is [10, 6, 3], and we're done with node that give val 3,
+#             # we should pop it from the stack
+#             should_pop = True
+
+#         correlation = stack[-1]
+#         if correlation >= target:
+#             valid_correlation += 1
+
+#         for n, w in graph[node].items():
+#             if n not in visited and n != source:
+#                 dfs(n, w)
+
+#         if should_pop:
+#             stack.pop()
+
+#     for n, w in graph[source].items():
+#         if n not in visited:
+#             dfs(n, w)
+
+#     print(valid_correlation)
+
+
+# Cleaner solution
 def main():
     vertex_count, source, target = map(int, input().split())
     graph = defaultdict(dict)
@@ -31,41 +76,21 @@ def main():
         u, v, w = map(int, input().split())
         graph[u][v] = w
         graph[v][u] = w
-
     visited = set()
-    stack = []  # monotonic decreasing stack
-    valid_correlation = 0
 
-    def dfs(node, current_min):
-        nonlocal valid_correlation
-
+    def dfs(node, min_relevance):
         visited.add(node)
-
-        should_pop = False
-        if len(stack) == 0 or current_min < stack[-1]:
-            stack.append(current_min)
-            # Since this node is the minimum so far, when we're done,
-            # we should pop and correlation will be the previous minimum
-            # Ex: if our stack is [10, 6, 3], and we're done with node that give val 3,
-            # we should pop it from the stack
-            should_pop = True
-
-        correlation = stack[-1]
-        if correlation >= target:
-            valid_correlation += 1
-
+        count = 0
         for n, w in graph[node].items():
-            if n not in visited and n != source:
-                dfs(n, w)
+            if n not in visited:
+                next_min_relevance = min(min_relevance, w)
+                if next_min_relevance >= target:
+                    count += 1
+                count += dfs(n, next_min_relevance)
+        return count
 
-        if should_pop:
-            stack.pop()
-
-    for n, w in graph[source].items():
-        if n not in visited:
-            dfs(n, w)
-
-    print(valid_correlation)
+    res = dfs(source, float("inf"))
+    print(res)
 
 
 if __name__ == "__main__":
