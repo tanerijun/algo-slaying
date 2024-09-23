@@ -18,13 +18,11 @@ class Codec:
         s = []
 
         def dfs(node):
-            nonlocal s
-
             if node is None:
                 s.append("N")
                 return
 
-            s.append(node.val)
+            s.append(str(node.val))
             dfs(node.left)
             dfs(node.right)
 
