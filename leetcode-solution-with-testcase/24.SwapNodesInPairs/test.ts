@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.160.0/testing/asserts.ts";
-import { swapPairs, ListNode } from "./solution.ts";
+import { ListNode, swapPairs } from "./solution.ts";
 
 function convertListToArray(head: ListNode | null): number[] {
   const arr: number[] = [];
@@ -29,13 +29,16 @@ function convertArrayToList(arr: number[]): ListNode | null {
 }
 
 Deno.test("[1,2,3,4]", () => {
-  assertEquals(convertListToArray(swapPairs(convertArrayToList([1, 2, 3, 4]))), [2, 1, 4, 3]);
-})
+  assertEquals(
+    convertListToArray(swapPairs(convertArrayToList([1, 2, 3, 4]))),
+    [2, 1, 4, 3],
+  );
+});
 
 Deno.test("[]", () => {
   assertEquals(convertListToArray(swapPairs(convertArrayToList([]))), []);
-})
+});
 
 Deno.test("[1]", () => {
   assertEquals(convertListToArray(swapPairs(convertArrayToList([1]))), [1]);
-})
+});

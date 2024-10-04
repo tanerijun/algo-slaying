@@ -7,7 +7,10 @@ export class ListNode {
   }
 }
 
-export function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+export function mergeTwoLists(
+  list1: ListNode | null,
+  list2: ListNode | null,
+): ListNode | null {
   const dummyHead = new ListNode();
   let curr: ListNode | null = dummyHead;
 
@@ -23,10 +26,10 @@ export function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): L
     curr = curr.next as ListNode;
   }
 
-  // At this point, one of the list is empty, 
+  // At this point, one of the list is empty,
   // and we need to plug the rest of the elements in the other list to our answer list.
 
   curr.next = list1 === null ? list2 : list1;
 
   return dummyHead.next;
-};
+}

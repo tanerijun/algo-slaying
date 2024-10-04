@@ -1,5 +1,5 @@
-import { assertEquals } from 'https://deno.land/std@0.160.0/testing/asserts.ts';
-import { removeNthFromEnd, ListNode } from './solution.ts';
+import { assertEquals } from "https://deno.land/std@0.160.0/testing/asserts.ts";
+import { ListNode, removeNthFromEnd } from "./solution.ts";
 
 function createLinkedList(start: number, end: number): ListNode {
   const head = new ListNode(start);
@@ -31,23 +31,38 @@ function convertListToArray(head: ListNode | null): number[] {
 Deno.test("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4", () => {
   const linkedList = createLinkedList(1, 10);
 
-  assertEquals(convertListToArray(removeNthFromEnd(linkedList, 4)), [1, 2, 3, 4, 5, 6, 8, 9, 10]);
-})
+  assertEquals(convertListToArray(removeNthFromEnd(linkedList, 4)), [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+  ]);
+});
 
 Deno.test("[1, 2 ,3 ,4 ,5], 2]", () => {
   const linkedList = createLinkedList(1, 5);
 
-  assertEquals(convertListToArray(removeNthFromEnd(linkedList, 2)), [1, 2, 3, 5]);
-})
+  assertEquals(convertListToArray(removeNthFromEnd(linkedList, 2)), [
+    1,
+    2,
+    3,
+    5,
+  ]);
+});
 
 Deno.test("[1], 1", () => {
   const linkedList = createLinkedList(1, 1);
 
   assertEquals(convertListToArray(removeNthFromEnd(linkedList, 1)), []);
-})
+});
 
 Deno.test("[1, 2], 2", () => {
   const linkedList = createLinkedList(1, 2);
 
   assertEquals(convertListToArray(removeNthFromEnd(linkedList, 2)), [2]);
-})
+});

@@ -1,25 +1,25 @@
 function numRescueBoats(people: number[], limit: number): number {
-	people.sort((a, b) => a - b)
+  people.sort((a, b) => a - b);
 
-	let boatCount = 0
-	let currentLimit = limit
-	let l = 0
-	let r = people.length - 1
+  let boatCount = 0;
+  let currentLimit = limit;
+  let l = 0;
+  let r = people.length - 1;
 
-	while (l <= r) {
-		boatCount++
-		currentLimit -= people[r]
+  while (l <= r) {
+    boatCount++;
+    currentLimit -= people[r];
 
-		if (currentLimit > 0 && currentLimit - people[l] >= 0) {
-			currentLimit -= people[l]
-			l++
-		}
+    if (currentLimit > 0 && currentLimit - people[l] >= 0) {
+      currentLimit -= people[l];
+      l++;
+    }
 
-		r--
-		currentLimit = limit
-	}
+    r--;
+    currentLimit = limit;
+  }
 
-	return boatCount
+  return boatCount;
 }
 // Time complexity: O(n*log(n))
 // Space complexity: O(1)

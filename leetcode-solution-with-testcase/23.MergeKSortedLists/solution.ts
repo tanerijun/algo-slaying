@@ -29,10 +29,13 @@ export function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
 
   // At this point, we're left with one single linked list
   return lists[0] ? lists[0] : null;
-};
+}
 
 // The solution from 21.MergeTwoSortedLists
-function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+function mergeTwoLists(
+  list1: ListNode | null,
+  list2: ListNode | null,
+): ListNode | null {
   const dummyHead = new ListNode();
   let curr: ListNode | null = dummyHead;
 
@@ -51,4 +54,4 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
   curr.next = list1 === null ? list2 : list1;
 
   return dummyHead.next;
-};
+}

@@ -8,7 +8,10 @@ export class ListNode {
   }
 }
 
-export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+export function removeNthFromEnd(
+  head: ListNode | null,
+  n: number,
+): ListNode | null {
   if (!head) {
     return null;
   }
@@ -38,4 +41,4 @@ export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | n
   l!.next = l?.next?.next as ListNode;
 
   return head;
-};
+}

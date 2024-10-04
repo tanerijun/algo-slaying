@@ -19,7 +19,6 @@ export function divide(dividend: number, divisor: number): number {
   dividend = Math.abs(dividend);
   divisor = Math.abs(divisor);
 
-
   if (res === 0) {
     let counter = 0; // track the number of substraction
     while (dividend >= 0) {
@@ -44,4 +43,4 @@ export function divide(dividend: number, divisor: number): number {
   }
 
   return res;
-};
+}

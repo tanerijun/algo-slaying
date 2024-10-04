@@ -1,5 +1,4 @@
 export function intToRoman(num: number): string {
-
   const intToRomanMap = new Map<number, string>([
     [1000, "M"],
     [900, "CM"],
@@ -18,7 +17,7 @@ export function intToRoman(num: number): string {
 
   for (const key of intToRomanMap.keys()) {
     if (num >= key) {
-      return intToRomanMap.get(key)! + intToRoman(num - key)
+      return intToRomanMap.get(key)! + intToRoman(num - key);
     }
   }
 

@@ -1,79 +1,79 @@
 class LinkedListItem {
-	constructor(public readonly val: number, public next?: LinkedListItem) {}
+  constructor(public readonly val: number, public next?: LinkedListItem) {}
 }
 
 class MyLinkedList {
-	private head?: LinkedListItem;
+  private head?: LinkedListItem;
 
-	get(index: number): number {
-		let item = this.head;
+  get(index: number): number {
+    let item = this.head;
 
-		for (let i = 0; i <= index && item; i++) {
-			if (i === index) {
-				return item.val;
-			}
+    for (let i = 0; i <= index && item; i++) {
+      if (i === index) {
+        return item.val;
+      }
 
-			item = item.next;
-		}
+      item = item.next;
+    }
 
-		return -1;
-	}
+    return -1;
+  }
 
-	addAtHead(val: number): void {
-		this.head = new LinkedListItem(val, this.head);
-	}
+  addAtHead(val: number): void {
+    this.head = new LinkedListItem(val, this.head);
+  }
 
-	addAtTail(val: number): void {
-		if (!this.head) {
-			return this.addAtHead(val);
-		}
+  addAtTail(val: number): void {
+    if (!this.head) {
+      return this.addAtHead(val);
+    }
 
-		let lastItem = this.head;
+    let lastItem = this.head;
 
-		while (lastItem.next) {
-			lastItem = lastItem.next;
-		}
+    while (lastItem.next) {
+      lastItem = lastItem.next;
+    }
 
-		lastItem.next = new LinkedListItem(val);
-	}
+    lastItem.next = new LinkedListItem(val);
+  }
 
-	addAtIndex(index: number, val: number): void {
-		if (!index) {
-			return this.addAtHead(val);
-		}
+  addAtIndex(index: number, val: number): void {
+    if (!index) {
+      return this.addAtHead(val);
+    }
 
-		let item = this.head;
+    let item = this.head;
 
-		for (let i = 0; i <= index - 1 && item; i++) {
-			if (i === index - 1) {
-				item.next = new LinkedListItem(val, item.next);
+    for (let i = 0; i <= index - 1 && item; i++) {
+      if (i === index - 1) {
+        item.next = new LinkedListItem(val, item.next);
 
-				return;
-			}
+        return;
+      }
 
-			item = item.next;
-		}
-	}
+      item = item.next;
+    }
+  }
 
-	deleteAtIndex(index: number): void {
-		if (!index) {
-			this.head = this.head?.next;
+  deleteAtIndex(index: number): void {
+    if (!index) {
+      this.head = this.head?.next;
 
-			return;
-		}
+      return;
+    }
 
-		let item = this.head;
+    let item = this.head;
 
-		for (let i = 0; i <= index - 1 && item; i++) {
-			if (i === index - 1) {
-				item.next = item.next?.next;
+    for (let i = 0; i <= index - 1 && item; i++) {
+      if (i === index - 1) {
+        item.next = item.next?.next;
 
-				return;
-			}
+        return;
+      }
 
-			item = item.next;
-		}
-	}
+      item = item.next;
+    }
+  }
 }
 
 /**

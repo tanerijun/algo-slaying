@@ -8,5 +8,5 @@ export function removeElement(nums: number[], val: number): [number, number[]] {
     }
   }
 
-  return [i, nums]
-};
+  return [i, nums];
+}

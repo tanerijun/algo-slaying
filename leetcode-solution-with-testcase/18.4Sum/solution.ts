@@ -2,7 +2,7 @@ export function fourSum(nums: number[], target: number): number[][] {
   nums.sort((a, b) => a - b);
 
   return kSum(nums, target, 4);
-};
+}
 
 // twoSum solution using two pointers
 // nums should be sorted beforehand
@@ -17,7 +17,9 @@ export function twoSum(nums: number[], target: number): number[][] {
 
     if (sum < target || (l > 0 && nums[l] === nums[l - 1])) {
       l++;
-    } else if (sum > target || (r < nums.length - 1 && nums[r] === nums[r + 1])) {
+    } else if (
+      sum > target || (r < nums.length - 1 && nums[r] === nums[r + 1])
+    ) {
       r--;
     } else {
       res.push([nums[l], nums[r]]);

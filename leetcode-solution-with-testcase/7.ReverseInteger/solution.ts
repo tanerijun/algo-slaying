@@ -10,17 +10,17 @@ export function reverse(x: number): number {
 
 // Using arithmetic
 export function reverse(x: number): number {
-	let input = Math.abs(x);
-	let result: number = 0;
+  let input = Math.abs(x);
+  let result: number = 0;
 
-	while (input != 0) {
-		result = result * 10 + input % 10;
-		input = Math.trunc(input / 10);
-	}
+  while (input != 0) {
+    result = result * 10 + input % 10;
+    input = Math.trunc(input / 10);
+  }
 
-	result *= Math.sign(x);
+  result *= Math.sign(x);
 
-	if (result < Math.pow(-2, 31) || result > Math.pow(2, 31) - 1) return 0;
+  if (result < Math.pow(-2, 31) || result > Math.pow(2, 31) - 1) return 0;
 
-	return result;
+  return result;
 }

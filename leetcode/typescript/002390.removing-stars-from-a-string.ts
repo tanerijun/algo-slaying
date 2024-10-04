@@ -1,15 +1,15 @@
 function removeStars(s: string): string {
-	const stack: string[] = [];
+  const stack: string[] = [];
 
-	for (const c of s) {
-		if (c === "*") {
-			stack.pop();
-		} else {
-			stack.push(c);
-		}
-	}
+  for (const c of s) {
+    if (c === "*") {
+      stack.pop();
+    } else {
+      stack.push(c);
+    }
+  }
 
-	return stack.join("");
+  return stack.join("");
 }
 // Time complexity: O(n)
 // Space complexity: O(n)

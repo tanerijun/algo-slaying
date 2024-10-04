@@ -9,7 +9,9 @@ export function twoSum(numbers: number[], target: number): number[] {
 
     if (sum < target || (l > 0 && numbers[l] === numbers[l - 1])) {
       l++;
-    } else if (sum > target || (r < numbers.length - 1 && numbers[r] === numbers[r + 1])) {
+    } else if (
+      sum > target || (r < numbers.length - 1 && numbers[r] === numbers[r + 1])
+    ) {
       r--;
     } else {
       res.push(l + 1, r + 1);
@@ -19,4 +21,4 @@ export function twoSum(numbers: number[], target: number): number[] {
   }
 
   return res;
-};
+}

@@ -1,5 +1,4 @@
 export function threeSumClosest(nums: number[], target: number): number {
-
   nums.sort((a, b) => a - b);
   let result = nums[0] + nums[1] + nums[2];
   let l = 0;
@@ -10,7 +9,7 @@ export function threeSumClosest(nums: number[], target: number): number {
     r = nums.length - 1;
 
     while (l < r) {
-      const sum = nums[i] + nums[l] + nums[r]
+      const sum = nums[i] + nums[l] + nums[r];
 
       if (sum < target) {
         l++;
@@ -27,4 +26,4 @@ export function threeSumClosest(nums: number[], target: number): number {
   }
 
   return result;
-};
+}

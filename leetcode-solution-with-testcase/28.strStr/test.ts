@@ -3,8 +3,8 @@ import { strStr } from "./solution.ts";
 
 Deno.test(`haystack = "sadbutsad", needle = "sad"`, () => {
   assertEquals(strStr("sadbutsad", "sad"), 0);
-})
+});
 
 Deno.test(`haystack = "leetcode", needle = "leeto"`, () => {
   assertEquals(strStr("leetcode", "leeto"), -1);
-})
+});

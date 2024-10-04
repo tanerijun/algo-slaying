@@ -8,8 +8,8 @@ export function letterCombinations(digits: string): string[] {
     "6": "mno",
     "7": "qprs",
     "8": "tuv",
-    "9": "wxyz"
-  }
+    "9": "wxyz",
+  };
 
   function backtrack(i: number, curr: string) {
     if (curr.length === digits.length) {
@@ -17,7 +17,8 @@ export function letterCombinations(digits: string): string[] {
       return;
     }
 
-    const letters = digitToLettersMap[digits[i] as keyof typeof digitToLettersMap];
+    const letters =
+      digitToLettersMap[digits[i] as keyof typeof digitToLettersMap];
 
     for (const letter of letters) {
       backtrack(i + 1, curr + letter);
@@ -29,4 +30,4 @@ export function letterCombinations(digits: string): string[] {
   }
 
   return res;
-};
+}

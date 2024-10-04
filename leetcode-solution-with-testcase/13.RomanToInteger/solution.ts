@@ -30,4 +30,4 @@ export function romanToInt(s: string): number {
   }
 
   return res;
-};
+}

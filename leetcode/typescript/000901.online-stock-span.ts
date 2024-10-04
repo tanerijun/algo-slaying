@@ -1,30 +1,30 @@
 class StockSpanner {
-	stack: Array<{ price: number; span: number }>;
+  stack: Array<{ price: number; span: number }>;
 
-	constructor() {
-		this.stack = [];
-	}
+  constructor() {
+    this.stack = [];
+  }
 
-	top() {
-		return this.stack[this.stack.length - 1];
-	}
+  top() {
+    return this.stack[this.stack.length - 1];
+  }
 
-	isEmpty() {
-		return this.stack.length === 0;
-	}
+  isEmpty() {
+    return this.stack.length === 0;
+  }
 
-	next(price: number): number {
-		const stock = { price, span: 1 };
+  next(price: number): number {
+    const stock = { price, span: 1 };
 
-		while (!this.isEmpty() && price >= this.top().price) {
-			const popped = this.stack.pop();
-			stock.span += popped!.span;
-		}
+    while (!this.isEmpty() && price >= this.top().price) {
+      const popped = this.stack.pop();
+      stock.span += popped!.span;
+    }
 
-		this.stack.push(stock);
+    this.stack.push(stock);
 
-		return this.top().span;
-	}
+    return this.top().span;
+  }
 }
 
 /**

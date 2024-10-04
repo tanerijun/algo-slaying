@@ -12,10 +12,10 @@ export function longestCommonPrefix(strs: string[]): string {
   }
 
   return out;
-};
+}
 
 function checkSameLetter(arr: string[], idx: number): boolean {
-  const curr = arr[0][idx]
+  const curr = arr[0][idx];
 
   if (!curr) {
     return false;

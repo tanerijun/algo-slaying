@@ -1,23 +1,23 @@
-const encodedMap = new Map<string, string>()
+const encodedMap = new Map<string, string>();
 
 /**
  * Encodes a URL to a shortened URL.
  */
 function encode(longUrl: string): string {
-	const shortUrl = (encodedMap.size + 1).toString()
-	encodedMap.set(shortUrl, longUrl)
-	return shortUrl
+  const shortUrl = (encodedMap.size + 1).toString();
+  encodedMap.set(shortUrl, longUrl);
+  return shortUrl;
 }
 
 /**
  * Decodes a shortened URL to its original URL.
  */
 function decode(shortUrl: string): string {
-	const longUrl = encodedMap.get(shortUrl)
-	if (!longUrl) {
-		throw new Error(`${shortUrl} doesn't exist in database`)
-	}
-	return longUrl
+  const longUrl = encodedMap.get(shortUrl);
+  if (!longUrl) {
+    throw new Error(`${shortUrl} doesn't exist in database`);
+  }
+  return longUrl;
 }
 
 /**

@@ -10,7 +10,7 @@ Deno.test("nums = [3,2,2,3], val = 3", () => {
   assertEquals(k, expectedNums.length);
 
   assertEquals(editedNums.slice(0, k).includes(val), false);
-})
+});
 
 Deno.test("nums = [0,1,2,2,3,0,4,2], val = 2", () => {
   const nums = [0, 1, 2, 2, 3, 0, 4, 2];
@@ -21,4 +21,4 @@ Deno.test("nums = [0,1,2,2,3,0,4,2], val = 2", () => {
   assertEquals(k, expectedNums.length);
 
   assertEquals(editedNums.slice(0, k).includes(val), false);
-})
+});

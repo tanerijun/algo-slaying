@@ -1,24 +1,24 @@
 function canConstruct(ransomNote: string, magazine: string): boolean {
-	const magazineLetterMap = new Map<string, number>()
+  const magazineLetterMap = new Map<string, number>();
 
-	for (const letter of magazine) {
-		const letterCount = magazineLetterMap.get(letter)
+  for (const letter of magazine) {
+    const letterCount = magazineLetterMap.get(letter);
 
-		if (letterCount) {
-			magazineLetterMap.set(letter, letterCount + 1)
-		} else {
-			magazineLetterMap.set(letter, 1)
-		}
-	}
+    if (letterCount) {
+      magazineLetterMap.set(letter, letterCount + 1);
+    } else {
+      magazineLetterMap.set(letter, 1);
+    }
+  }
 
-	for (const letter of ransomNote) {
-		const letterCountLeftInMagazine = magazineLetterMap.get(letter)
-		if (!letterCountLeftInMagazine) return false
+  for (const letter of ransomNote) {
+    const letterCountLeftInMagazine = magazineLetterMap.get(letter);
+    if (!letterCountLeftInMagazine) return false;
 
-		magazineLetterMap.set(letter, letterCountLeftInMagazine - 1)
-	}
+    magazineLetterMap.set(letter, letterCountLeftInMagazine - 1);
+  }
 
-	return true
+  return true;
 }
 // Time complexity: O(n)
 // Space complexity: O(n)

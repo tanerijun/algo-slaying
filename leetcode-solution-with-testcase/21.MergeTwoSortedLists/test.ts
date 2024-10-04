@@ -1,5 +1,5 @@
-import { assertEquals } from "https://deno.land/std@0.160.0/testing/asserts.ts"
-import { mergeTwoLists, ListNode } from "./solution.ts"
+import { assertEquals } from "https://deno.land/std@0.160.0/testing/asserts.ts";
+import { ListNode, mergeTwoLists } from "./solution.ts";
 
 function convertListToArray(head: ListNode | null): number[] {
   const arr: number[] = [];
@@ -31,19 +31,26 @@ Deno.test("list1 = [1,2,4], list2 = [1,3,4]", () => {
   curr = curr.next;
   curr.next = new ListNode(4);
 
-  assertEquals(convertListToArray(mergeTwoLists(list1, list2)), [1, 1, 2, 3, 4, 4]);
-})
+  assertEquals(convertListToArray(mergeTwoLists(list1, list2)), [
+    1,
+    1,
+    2,
+    3,
+    4,
+    4,
+  ]);
+});
 
 Deno.test("list1 = [], list2 = []", () => {
   const list1 = null;
   const list2 = null;
 
   assertEquals(convertListToArray(mergeTwoLists(list1, list2)), []);
-})
+});
 
 Deno.test("list1 = [], list2 = [0]", () => {
   const list1 = null;
   const list2 = new ListNode(0);
 
   assertEquals(convertListToArray(mergeTwoLists(list1, list2)), [0]);
-})
+});

@@ -9,4 +9,4 @@ export function removeDuplicates(nums: number[]): [number, number[]] {
   }
 
   return [idx, nums];
-};
+}

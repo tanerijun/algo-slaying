@@ -1,25 +1,25 @@
 function simplifyPath(path: string): string {
-	const stack: string[] = [];
+  const stack: string[] = [];
 
-	const dirs = path.split("/");
+  const dirs = path.split("/");
 
-	for (let dir of dirs) {
-		// Handle "" && "."
-		if (!dir || dir === ".") {
-			continue;
-		}
+  for (let dir of dirs) {
+    // Handle "" && "."
+    if (!dir || dir === ".") {
+      continue;
+    }
 
-		// Handle ".."
-		if (dir === "..") {
-			stack.pop();
-			continue;
-		}
+    // Handle ".."
+    if (dir === "..") {
+      stack.pop();
+      continue;
+    }
 
-		// Valid name
-		stack.push(dir);
-	}
+    // Valid name
+    stack.push(dir);
+  }
 
-	return "/" + stack.join("/");
+  return "/" + stack.join("/");
 }
 // Time complexity: O(n)
 // Space complexity: O(n)
