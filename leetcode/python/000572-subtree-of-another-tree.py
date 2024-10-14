@@ -9,6 +9,10 @@ class TreeNode:
         self.right = right
 
 
+# Time complexity: O(n * m) - n = node count in root, m = node count in subRoot
+# Space complexity: O(h(n) + h(m))
+# Worst case is when subtree is not present in maintree but value matches with many part of maintree
+# For each call to isSubtree, isSameTree will be called, potentially comparing all nodes in subtree (m)
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         if not subRoot:
