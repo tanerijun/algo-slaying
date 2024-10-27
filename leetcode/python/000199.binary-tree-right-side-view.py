@@ -32,3 +32,21 @@ class Solution:
             seen.append(nodes[-1].val)  # the right-most node
 
         return seen
+
+    def rightSideView2(self, root: Optional[TreeNode]) -> List[int]:
+        if root is None:
+            return []
+
+        ret = []
+        queue = [root]
+        while queue:
+            ret.append(queue[-1].val)
+            new_queue = []
+            for node in queue:
+                if node.left:
+                    new_queue.append(node.left)
+                if node.right:
+                    new_queue.append(node.right)
+            queue = new_queue
+
+        return ret
