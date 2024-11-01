@@ -1,6 +1,9 @@
 class Solution:
-    # Time complexity: O(2^n)
+    # Time complexity: O(n * 2^n)
+    # - Include, exclude, and copying container
     # Space complexity: O(n)
+    # - Res is part of output space, so it's not counted here
+    # - The space complexity is O(n) because of recursion
     def subsets(self, nums: list[int]) -> list[list[int]]:
         res = []
 
