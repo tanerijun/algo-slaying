@@ -3,8 +3,10 @@ from collections import Counter, deque
 
 
 class Solution:
-    # Time complexity: O(n)
-    # Space complexity: O(n)
+    # Time complexity: O(n*log(k))
+    # Each task gets counted once, and gets processed in heap once
+    # Space complexity: O(k), where k is number of unique tasks
+    # We never store more than k items in any of the data structures
     def leastInterval(self, tasks: list[str], n: int) -> int:
         count = Counter(tasks)
         maxHeap = [-c for c in count.values()]
