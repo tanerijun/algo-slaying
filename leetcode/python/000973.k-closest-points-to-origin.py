@@ -14,8 +14,8 @@ class Solution:
     # Space complexity: O(k)
     def kClosestHeap(self, points: list[list[int]], k: int) -> list[list[int]]:
         heap = []
-        for (x, y) in points:
-            dist = -(x*x + y*y)
+        for x, y in points:
+            dist = -(x * x + y * y)
             if len(heap) == k:
                 heapq.heappushpop(heap, (dist, x, y))
             else:
