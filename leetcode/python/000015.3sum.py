@@ -1,6 +1,6 @@
 class Solution:
-	# Time complexity: O(n)
-	# Space complexity: O(n) // due to Timsort
+	# Time complexity: O(n²)
+	# Space complexity: O(n) // due to sort
 	def threeSum(self, nums: list[int]) -> list[list[int]]:
 		res = []
 		nums.sort()
