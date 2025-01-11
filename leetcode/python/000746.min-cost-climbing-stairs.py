@@ -21,3 +21,16 @@ class Solution:
             one = temp
 
         return min(one, two)
+
+    # Time complexity: O(n)
+    # Space complexity: O(1)
+    def minCostClimbingStairs3(self, cost: list[int]) -> int:
+        cost.append(0)
+
+        two_prev, one_prev = 0, 0
+        for c in cost:
+            temp = c + min(two_prev, one_prev)
+            one_prev = two_prev
+            two_prev = temp
+
+        return min(one_prev, two_prev)
