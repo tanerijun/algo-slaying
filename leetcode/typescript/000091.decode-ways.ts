@@ -55,3 +55,29 @@ function numDecodings2(s: string): number {
 
   return dpOnePrev;
 }
+
+function numDecodings3(s: string): number {
+  if (s[0] === "0") return 0;
+
+  let dpTwoPrev = 1; // ways to decode up to prev 2 pos, ways to decode empty string,
+  let dpOnePrev = 1; // ways to decode up to prev 1 pos, ways to decode with just the first digit
+
+  for (let i = 1; i < s.length; i++) {
+    let ways = 0;
+
+    if (s[i] !== "0") {
+      ways += dpOnePrev;
+    }
+
+    if (
+      Number(s.slice(i - 1, i + 1)) >= 10 && Number(s.slice(i - 1, i + 1)) <= 26
+    ) {
+      ways += dpTwoPrev;
+    }
+
+    dpTwoPrev = dpOnePrev;
+    dpOnePrev = ways;
+  }
+
+  return dpOnePrev;
+}
