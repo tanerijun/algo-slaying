@@ -41,3 +41,37 @@ function numIslands(grid: string[][]): number {
 
   return islands;
 }
+
+function numIslands2(grid: string[][]): number {
+  const rows = grid.length;
+  const cols = grid[0].length;
+  const visited = new Set<string>();
+  let islands = 0;
+
+  function dfs(r: number, c: number): void {
+    if (
+      r < 0 || c < 0 || r >= rows || c >= cols || visited.has(`${r},${c}`) ||
+      grid[r][c] === "0"
+    ) {
+      return;
+    }
+
+    visited.add(`${r},${c}`);
+
+    dfs(r - 1, c);
+    dfs(r + 1, c);
+    dfs(r, c - 1);
+    dfs(r, c + 1);
+  }
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (grid[r][c] === "1" && !visited.has(`${r},${c}`)) {
+        dfs(r, c);
+        islands++;
+      }
+    }
+  }
+
+  return islands;
+}
