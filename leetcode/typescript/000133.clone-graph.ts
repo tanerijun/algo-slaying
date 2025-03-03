@@ -9,7 +9,7 @@ class _Node {
 }
 
 // Time complexity: O(E+V)
-// Space complexity: O(E+V)
+// Space complexity: O(V) - map, recursion
 function cloneGraph(node: _Node | null): _Node | null {
   if (!node) return null;
 
