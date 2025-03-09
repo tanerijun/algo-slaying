@@ -5,8 +5,14 @@
         "recommended"
       ],
       "exclude": [
-        "no-unused-vars"
+        "no-unused-vars",
+        "no-explicit-any"
       ]
     }
+  },
+  "compilerOptions": {
+    "typeRoots": [
+      "./types"
+    ]
   }
 }
