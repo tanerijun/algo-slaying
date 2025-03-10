@@ -6,7 +6,8 @@
       ],
       "exclude": [
         "no-unused-vars",
-        "no-explicit-any"
+        "no-explicit-any",
+        "no-var"
       ]
     }
   },
