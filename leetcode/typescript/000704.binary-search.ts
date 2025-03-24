@@ -15,5 +15,5 @@ function search(nums: number[], target: number): number {
 
   return -1;
 }
-// Time complexity: O(n)
+// Time complexity: O(log(n))
 // Space complexity: O(1)
