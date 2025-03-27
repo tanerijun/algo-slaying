@@ -122,7 +122,5 @@ var pacificAtlantic2 = function (heights) {
   bfs(pQueue, pSeen);
   bfs(aQueue, aSeen);
 
-  return Array.from(pSeen.intersection(aSeen)).map((setKey) =>
-    fromSetKey(setKey)
-  );
+  return Array.from(pSeen.intersection(aSeen)).map(fromSetKey);
 };
