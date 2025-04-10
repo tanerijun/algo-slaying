@@ -17,12 +17,14 @@ var search = function (nums, target) {
 
     // left half is sorted
     if (nums[left] <= val) {
+      // check if target in left half
       if (nums[left] <= target && target < nums[mid]) {
         right = mid - 1;
       } else {
         left = mid + 1;
       }
     } else {
+      // right half is sorted, check if target in right half
       if (nums[mid] < target && target <= nums[right]) {
         left = mid + 1;
       } else {
