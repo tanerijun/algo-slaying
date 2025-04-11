@@ -20,10 +20,10 @@ var findMedianSortedArrays = function (nums1, nums2) {
     const j = Math.floor(total / 2) - i - 2;
 
     // The Infinity is necessary since i/j might be out of bounds
-    const nums1Left = nums1[i] || -Infinity;
-    const nums2Left = nums2[j] || -Infinity;
-    const nums1Right = nums1[i + 1] || Infinity;
-    const nums2Right = nums2[j + 1] || Infinity;
+    const nums1Left = i >= 0 ? nums1[i] : -Infinity;
+    const nums2Left = j >= 0 ? nums2[j] : -Infinity;
+    const nums1Right = i + 1 < nums1.length ? nums1[i + 1] : Infinity;
+    const nums2Right = j + 1 < nums2.length ? nums2[j + 1] : Infinity;
 
     // Partition is correct
     if (nums1Left <= nums2Right && nums2Left <= nums1Right) {
