@@ -19,9 +19,7 @@ function countBits(n: number): number[] {
 // Time complexity: O(n)
 // Space complexity: O(1) -> depends on if we count dp array as extra space or not (it's also the ans array)
 function countBit2(n: number): number[] {
-  if (n === 0) return [0];
-
-  const dp = Array(n).fill(0);
+  const dp = Array(n + 1).fill(0);
   let offset = 1; // largest most-significant-bit reached
 
   for (let i = 1; i <= n; i++) {
