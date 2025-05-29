@@ -30,3 +30,28 @@ class Solution:
                 return [n1, n2]
 
         return edges[0]  # won't happen
+
+    def findRedundantConnection2(self, edges: list[list[int]]) -> list[int]:
+        N = len(edges)
+        parents = [i for i in range(N + 1)]  # i-th node -> parent, ignore 0
+
+        def find_par(x):
+            if parents[x] != x:
+                parents[x] = find_par(parents[x])  # path compression
+            return parents[x]
+
+        def union(x, y):
+            root_x = find_par(x)
+            root_y = find_par(y)
+
+            if root_x == root_y:
+                return False
+
+            parents[root_x] = root_y # make 1 root point to the other (union)
+            return True
+
+        for x, y in edges:
+            if not union(x, y)
+                return [x, y]
+
+        return edges[0]  # won't happen
