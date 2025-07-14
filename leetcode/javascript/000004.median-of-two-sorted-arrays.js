@@ -17,7 +17,7 @@ var findMedianSortedArrays = function (nums1, nums2) {
 
   while (true) {
     const i = Math.floor((l + r) / 2);
-    const j = Math.floor(total / 2) - i - 2;
+    const j = Math.floor(total / 2) - i - 2; // total / 2 = half (median). We don't need to look for the pivot in nums2 because it can be derived from i (half - i (size of nums1) - 2 (to account for 0-index in both arrays))
 
     // The Infinity is necessary since i/j might be out of bounds
     const nums1Left = i >= 0 ? nums1[i] : -Infinity;
