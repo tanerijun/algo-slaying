@@ -1,4 +1,4 @@
-package two_sum
+package main
 
 // Time complexity: O(n)
 // Space complexity: O(n)

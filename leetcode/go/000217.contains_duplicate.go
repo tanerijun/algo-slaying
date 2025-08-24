@@ -1,4 +1,4 @@
-package contains_duplicate
+package main
 
 // Time complexity: O(n)
 // Space complexity: O(n)
