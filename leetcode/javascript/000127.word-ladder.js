@@ -16,7 +16,7 @@ var ladderLength = function(beginWord, endWord, wordList) {
   queue.push([beginWord, 1]);
 
   // Set serve 2 purposes here: Dictionary lookup & Visited tracking
-  const set = new Set([...wordList]);
+  const set = new Set(wordList);
   if (!set.has(endWord)) return 0;
 
   while(queue.length) {
