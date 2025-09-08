@@ -18,7 +18,6 @@ var ladderLength = function(beginWord, endWord, wordList) {
   // Set serve 2 purposes here: Dictionary lookup & Visited tracking
   const set = new Set([...wordList]);
   if (!set.has(endWord)) return 0;
-  set.delete(beginWord);
 
   while(queue.length) {
     const [word, steps] = queue.shift();
