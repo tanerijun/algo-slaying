@@ -9,7 +9,11 @@
     "vector": "cpp"
   },
   "github.copilot.enable": {
-    "*": false
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "javascript": false
   },
   "[javascript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
