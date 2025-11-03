@@ -11,7 +11,7 @@
  * - To find shortest path in graph, use BFS
  * - BFS always explores the shortest path first
  */
-var ladderLength = function(beginWord, endWord, wordList) {
+var ladderLength = function (beginWord, endWord, wordList) {
   const queue = [];
   queue.push([beginWord, 1]);
 
@@ -19,7 +19,7 @@ var ladderLength = function(beginWord, endWord, wordList) {
   const set = new Set(wordList);
   if (!set.has(endWord)) return 0;
 
-  while(queue.length) {
+  while (queue.length) {
     const [word, steps] = queue.shift();
 
     if (word === endWord) return steps;
