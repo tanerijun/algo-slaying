@@ -27,6 +27,7 @@ class Solution(object):
                     return False
                 count[i] -= 1
                 if count[i] == 0:
+                    # Slight optimization: early return
                     # If the element we want to pop is not the min,
                     # It will create gap.
                     # For example: If we still have 1, and we pop 2 (groupSize 3)
