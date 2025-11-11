@@ -2,16 +2,14 @@ import heapq
 
 
 class MedianFinder:
-
     def __init__(self):
         # small (maxHeap)
         # large (minHeap)
         self.small, self.large = [], []
 
-
     # Time complexity: O(log(n))
     def addNum(self, num: int) -> None:
-        heapq.heappush(self.small, num * -1) # to simulate maxHeap with minHeap
+        heapq.heappush(self.small, num * -1)  # to simulate maxHeap with minHeap
 
         # every element in small should be smaller than every element in large
         if self.small and self.large and self.small[0] * -1 > self.large[0]:
@@ -26,14 +24,11 @@ class MedianFinder:
             val = heapq.heappop(self.large)
             heapq.heappush(self.small, val * -1)
 
-
     # Time complexity: O(1)
     def findMedian(self) -> float:
         # odd length
         if len(self.small) > len(self.large):
             return self.small[0] * -1
-        if len(self.large) > len(self.small):
-            return self.large[0]
         return (self.small[0] * -1 + self.large[0]) / 2
 
 
