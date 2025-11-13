@@ -12,7 +12,7 @@
 var maxTurbulenceSize = function (arr) {
   let res = 0;
   let count = 0;
-  let sign = -1; // -1 reset, 1 previous was >, -1, previous was <
+  let sign = -1; // 0 reset, 1 previous was >, -1, previous was <
 
   for (let i = 0; i < arr.length - 1; i++) {
     if (arr[i] > arr[i + 1]) {
