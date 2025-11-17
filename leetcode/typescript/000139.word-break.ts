@@ -1,4 +1,4 @@
-// Time complexity: O(n * m * l) -> n = length of s, m = length of wordDict, l = length of longest word in wordDict
+// Time complexity: O(n * l^2) -> n = length of s, l = length of longest word in wordDict
 // Space complexity: O(n)
 function wordBreak(s: string, wordDict: string[]): boolean {
   // Can we break string up to index i?
