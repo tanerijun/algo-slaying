@@ -1,7 +1,9 @@
 // Time complexity: O(n * m * l) -> n = length of s, m = length of wordDict, l = length of longest word in wordDict
 // Space complexity: O(n)
 function wordBreak(s: string, wordDict: string[]): boolean {
-  const dp = new Array(s.length + 1).fill(false); // can we break string up to index i?
+  // Can we break string up to index i?
+  // Length of s.length + 1 to include empty string (before any characters (dp[0] below))
+  const dp = new Array(s.length + 1).fill(false);
   // The string at index 0 is an empty string,
   // To break it, just don't choose any word from wordDict.
   dp[0] = true;
