@@ -2,6 +2,7 @@ class Solution:
     # Time complexity: O(n)
     # Space complexity: O(n)
     def maxProfit(self, prices: list[int]) -> int:
+        # Store: How much maxProfit if buying/skipping prices[i]
         dp = {}  # key = (i, state), val = maxProfit
 
         # State can either be buying or selling.
