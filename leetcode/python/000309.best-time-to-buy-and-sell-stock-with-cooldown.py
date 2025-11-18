@@ -31,4 +31,6 @@ class Solution:
 
             return dp[(i, buying)]
 
+        # Initially, we are always in a 'buying' state
+        # (We don't own any stock and can only buy / cooldown)
         return dfs(0, True)
