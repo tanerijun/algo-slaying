@@ -15,7 +15,7 @@ class Solution:
             res.append(-1 if cur_min == float("inf") else cur_min)
         return res
 
-    # Time complexity: O(nlog(n) * mlog(m))
+    # Time complexity: O(nlog(n) + mlog(m))
     # Space complexity: O(n + m)
     def minInterval2(self, intervals: list[list[int]], queries: list[int]) -> list[int]:
         intervals.sort()
