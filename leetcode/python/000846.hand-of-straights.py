@@ -1,4 +1,5 @@
 import heapq
+from collections import Counter
 
 
 class Solution(object):
@@ -35,5 +36,33 @@ class Solution(object):
                     if i != min_heap[0]:
                         return False
                     heapq.heappop(min_heap)
+
+        return True
+
+    # Time complexity: O(n(log(n)))
+    # Space complexity: O(n)
+    def isNStraightHand1(self, hand, groupSize):
+        """
+        :type hand: List[int]
+        :type groupSize: int
+        :rtype: bool
+        """
+        if len(hand) % groupSize != 0:
+            return False
+
+        count = Counter(hand)
+        for x in sorted(count):
+            # If this card has already been used up in previous groups, skip it
+            need = count[x]
+            if need == 0:
+                continue
+
+            # We need to create 'need' sequences starting at value x.
+            # That means reducing count[x], count[x+1], ..., count[x+groupSize-1] each by 'need'
+            for val in range(x, x + groupSize):
+                # If any required value does not exist enough times → cannot form a straight
+                if count.get(val, 0) < need:
+                    return False
+                count[val] -= need
 
         return True
