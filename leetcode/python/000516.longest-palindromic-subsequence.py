@@ -1,3 +1,6 @@
+from functools import lru_cache
+
+
 class Solution:
     # Time complexity: O(n^2)
     # Space complexity: O(n^2)
@@ -16,3 +19,21 @@ class Solution:
             return dp[0][0]
 
         return longestCommonSubsequence(s, s[::-1])
+
+    # Time complexity: O(n^2)
+    # Space complexity: O(n^2)
+    def longestPalindromeSubseq1(self, s: str) -> int:
+        @lru_cache(None)
+        def dfs(l, r):
+            if l > r:
+                return 0
+            if l == r:
+                return 1  # single character is always a palindrome
+            if s[l] == s[r]:
+                # Characters match! Include both and recurse on the inner substring
+                return 2 + dfs(l + 1, r - 1)
+            else:
+                # Characters don't match. Try skipping either the left or right character
+                return max(dfs(l + 1, r), dfs(l, r - 1))
+
+        return dfs(0, len(s) - 1)
