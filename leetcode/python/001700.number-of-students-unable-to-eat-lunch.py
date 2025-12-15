@@ -1,4 +1,4 @@
-from collections import deque
+from collections import Counter, deque
 
 
 class Solution:
@@ -45,4 +45,14 @@ class Solution:
                 else:
                     want1 -= 1
 
+        return 0
+
+    # Time complexity: O(n)
+    # Space complexity: O(1)
+    def countStudents2(self, students: list[int], sandwiches: list[int]) -> int:
+        count = Counter(students)
+        for i in range(len(sandwiches)):
+            if count[sandwiches[i]] == 0:
+                return len(sandwiches) - i
+            count[sandwiches[i]] -= 1
         return 0
