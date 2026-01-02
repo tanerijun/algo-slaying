@@ -23,6 +23,9 @@ class Solution:
         count = {}
         res = 0
         l = 0
+        # Overestimating max_freq is fine for this problem
+        # Since stale_max (as window shrinks) is always higher than true_max
+        # (r - l + 1) - true_max > k implies (r - l + 1) - stale_max ≥ (r - l + 1) - true_max > k
         max_freq = 0
 
         for r in range(len(s)):
