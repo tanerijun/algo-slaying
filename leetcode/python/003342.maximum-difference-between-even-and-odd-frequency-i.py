@@ -2,7 +2,7 @@ from collections import Counter
 
 
 # Time complexity: O(n)
-# Space complexity: O(n)
+# Space complexity: O(1) - max char 26
 class Solution:
     def maxDifference(self, s: str) -> int:
         count = Counter(s)
