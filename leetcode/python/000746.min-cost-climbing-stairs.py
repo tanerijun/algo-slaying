@@ -34,3 +34,16 @@ class Solution:
             two_prev = temp
 
         return min(one_prev, two_prev)
+
+    # Time complexity: O(n)
+    # Space complexity: O(1)
+    def minCostClimbingStairs4(self, cost: list[int]) -> int:
+        cost.append(0)
+        two_prev, one_prev = cost[0], cost[1]
+
+        for i in range(2, len(cost)):
+            temp = min(one_prev, two_prev) + cost[i]
+            two_prev = one_prev
+            one_prev = temp
+
+        return one_prev
