@@ -66,3 +66,18 @@ class Solution(object):
                 count[val] -= need
 
         return True
+
+    # Time complexity: O(n(log(n)))
+    # Space complexity: O(n)
+    def isNStraightHand3(self, hand: list[int], groupSize: int) -> bool:
+        counter = Counter(hand)
+        sorted_keys = sorted(counter.keys())
+
+        for k in sorted_keys:
+            while counter[k] > 0:
+                for i in range(int(k), int(k) + groupSize):
+                    if counter[i] == 0:
+                        return False
+                    counter[i] -= 1
+
+        return True
