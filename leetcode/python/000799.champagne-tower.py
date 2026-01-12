@@ -17,6 +17,21 @@ class Solution:
         # Since the array contains flow, not liquid quantity
         return min(1, prev[query_glass])
 
+    # Same as above, but with different variable names
+    def champagneTower2(self, poured: int, query_row: int, query_glass: int) -> float:
+        prev = [poured]
+
+        for _ in range(query_row):
+            cur = [0.0] * (len(prev) + 1)
+            for i in range(len(prev)):
+                extra = prev[i] - 1
+                if extra > 0:
+                    cur[i] += extra * 0.5
+                    cur[i + 1] += extra * 0.5
+            prev = cur
+
+        return min(1, prev[query_glass])
+
     # Example: poured = 4, query_row = 2, query_glass = 1
     # Initial:
     #   prev = [4]
