@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 class Solution:
     # Time complexity: O(n)
     # Space complexity: O(1) - always 26
@@ -38,3 +41,29 @@ class Solution:
             l += 1
 
         return matches == 26
+
+    # Time complexity: O(n) -> n = len(s2)
+    # Space complexity: O(1) -> always 26
+    def checkInclusion2(self, s1: str, s2: str) -> bool:
+        s1_counter = Counter(s1)
+        s2_counter = Counter(s2[: len(s1)])
+
+        def counter_match():
+            matching = True
+            for key in s1_counter:
+                if s1_counter[key] != s2_counter[key]:
+                    matching = False
+                    break
+            return matching
+
+        l = 0
+        for r in range(len(s1), len(s2)):
+            if counter_match():
+                return True
+
+            s2_counter[s2[l]] -= 1
+            l += 1
+
+            s2_counter[s2[r]] += 1
+
+        return counter_match()
