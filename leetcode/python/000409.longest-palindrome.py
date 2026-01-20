@@ -3,7 +3,7 @@ from collections import Counter
 
 class Solution:
     # Time complexity: O(n)
-    # Space complexity: O(n)
+    # Space complexity: O(1) -> max 26
     def longestPalindrome(self, s: str) -> int:
         counter = Counter(s)
         res = 0
