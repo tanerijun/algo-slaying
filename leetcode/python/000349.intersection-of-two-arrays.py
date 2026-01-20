@@ -36,5 +36,10 @@ class Solution:
     # Time complexity: O(n + m)
     # Space complexity: O(n)
     def intersection3(self, nums1: list[int], nums2: list[int]) -> list[int]:
-        set1, set2 = set(nums1), set(nums2)
-        return list(set1.intersection(set2))
+        seen = set(nums1)
+        res = []
+        for n in nums2:
+            if n in seen:
+                res.append(n)
+                seen.remove(n)
+        return res
