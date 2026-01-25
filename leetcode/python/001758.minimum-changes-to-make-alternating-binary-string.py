@@ -16,3 +16,20 @@ class Solution:
             start1 = "0" if start1 == "1" else "1"
 
         return min(needed0, needed1)
+
+    # Time complexity: O(n)
+    # Space complexity: O(1)
+    def minOperations2(self, s: str) -> int:
+        start_zero = 0
+        start_one = 0
+
+        for i in range(len(s)):
+            ch = s[i]
+            if i % 2 != 0:
+                start_zero += 1 if ch == "1" else 0
+                start_one += 1 if ch == "0" else 0
+            else:
+                start_zero += 1 if ch != "1" else 0
+                start_one += 1 if ch != "0" else 0
+
+        return min(start_zero, start_one)
