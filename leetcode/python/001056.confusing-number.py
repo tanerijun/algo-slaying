@@ -19,3 +19,18 @@ class Solution:
             rotated += rotate_map[ch]
 
         return rotated != str_n
+
+    # Time complexity: O(L) -> L is the number of maximum digits n can have (floor(log_10(n)) + 1)
+    # Space complexity: O(L)
+    def confusingNumber1(self, n: int) -> bool:
+        rotate_map = {0: 0, 1: 1, 6: 9, 8: 8, 9: 6}
+
+        n_copy = n
+        rotated = 0
+        while n_copy > 0:
+            if n_copy % 10 not in rotate_map:
+                return False
+            rotated = rotated * 10 + rotate_map[n_copy % 10]
+            n_copy //= 10
+
+        return rotated != n
