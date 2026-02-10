@@ -20,7 +20,7 @@ class Solution:
             nums1, nums2 = nums2, nums1
 
         # l, r represent how many elements we take from nums1 for the left partition
-        l, r = 0, len(nums1)
+        l, r = 0, len(nums1) - 1
 
         while True:
             # PARTITION INDEX for nums1:
