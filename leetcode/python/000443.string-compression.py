@@ -25,3 +25,22 @@ class Solution:
 
         del chars[write:]
         return len(chars)
+
+    # Time complexity: O(n)
+    # Space complexity: O(1)
+    def compress1(self, chars: list[str]) -> int:
+        write = 0
+        group_start = 0
+
+        for read in range(len(chars)):
+            if read + 1 == len(chars) or chars[read] != chars[read + 1]:
+                chars[write] = chars[group_start]
+                write += 1
+                count = read - group_start + 1
+                if count > 1:
+                    for digit in str(count):
+                        chars[write] = digit
+                        write += 1
+                group_start = read + 1
+
+        return write
