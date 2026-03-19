@@ -28,3 +28,18 @@ class Solution:
                     return False
 
         return True
+
+    # Time complexity: O(n * m)
+    # Space complexity: O(1)
+    def valid_word_square2(self, words: list[str]) -> bool:
+        for i in range(len(words)):
+            for j in range(i + 1, len(words)):
+                i_in = j < len(words[i])  # can we access words[i][j]?
+                j_in = i < len(words[j])  # can we access words[j][i]?
+
+                if i_in != j_in:  # one exists, other doesn't → asymmetric
+                    return False
+                if i_in and words[i][j] != words[j][i]:
+                    return False
+
+        return True
